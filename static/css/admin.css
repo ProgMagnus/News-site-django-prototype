@@ -1,0 +1,14 @@
+#header, 
+.module caption, .inline-group h2,
+#changelist-filter h2 {
+	background: #455a64;
+	color: #fff;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #fff;
+}
+
+div.breadcrumbs{
+	background: #263238;
+}

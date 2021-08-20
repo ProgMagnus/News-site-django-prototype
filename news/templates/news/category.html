@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ category.title }} : {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+			{% for i in news %}
+			<div class="card mb-3">
+			  <div class="card-header">
+			    Category: {{ i.category.title }}
+			  </div>
+			  <div class="card-body">
+			  	<div class="media">
+			  		{% if i.photo %}
+			  		<style>
+							.img-left {
+							   margin: 0px 10px 0px 0px;
+							   padding: 0;
+							   float: left;
+							}
+							</style>
+			  			<img class="img-responsive img-left" src="{{ i.photo.url }}" width="250" alt="" class="mg-3" >
+			  		{% endif %}
+			  		<div class="media-body">
+			  			<h5 class="card-title">{{ i.title }}</h5>
+			    		<p class="card-text">{{ i.content|truncatewords:50 }}</p>
+			    		<a href="{{ i.get_absolute_url }}" class="btn btn-primary">Read more</a>
+			  		</div>
+			  	</div>
+
+			  </div>
+			  <div class="card-footer text-muted">
+	    		{{ i.created_at|date:"Y-m-d H:i"}}
+			  </div>
+			 </div>
+			{% endfor %}
+		</div>
+		</div>
+
+
+{% endblock %}
+
+		
+
